@@ -9,21 +9,21 @@ if (!todo) {
 }
 
 function CreateToDoItems() {
-  if (todoValue.value === "") {
-    todoAlert.innerText = "Please enter your todo text!";
-    todoValue.focus();
-  } else {
-    let IsPresent = false;
-    todo.forEach((element) => {
-      if (element.item == todoValue.value) {
-        IsPresent = true;
-      }
-    });
+    if (todoValue.value === "") {
+        todoAlert.innerText = "Please enter your todo text!";
+        todoValue.focus();
+    } else {
+        let IsPresent = false;
+        todo.forEach((element) => {
+            if (element.item == todoValue.valye) {
+                IsPresent = true;
+            }
+        });
 
-    if (IsPresent) {
-      setAlertMessage("This item already present in the list!");
-      return;
-    }
+        if (IsPresent) {
+            setAlertMessage("This item already present in the list");
+            return;
+        }
 
     let li = document.createElement("li");
     const todoItems = `<div title="Hit Double Click and Complete" ondblclick="CompletedToDoItems(this)">${todoValue.value}</div><div>
@@ -32,13 +32,13 @@ function CreateToDoItems() {
     li.innerHTML = todoItems;
     listItems.appendChild(li);
 
-    if (!todo) {
-      todo = [];
+        if(!todo){
+            todo = [];
+        }
+        let itemList = { item: todoValue.value, status: false};
+        todo.push(itemList);
+        setLocalStorage();   
     }
-    let itemList = { item: todoValue.value, status: false };
-    todo.push(itemList);
-    setLocalStorage();
-  }
-  todoValue.value = "";
-  setAlertMessage("Todo item Created Successfully!");
+    todoValue.value = "";
+    setAlertMessage("Todo item Created Successfully!");
 }
