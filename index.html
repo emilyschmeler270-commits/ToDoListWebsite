@@ -4,28 +4,42 @@
   
     <head>
     
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>To Do Application - By Sharathchandar.K</title>
+        <title>To Do Application - By Sharathchandar.K</title>
     
-    <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css" />
   
     </head>
   
-  <body>
+    <body>
 
-    <div class="container">
+        <div class="container">
 
-        <div class="todo-header">
-            <h2>ToDo List</h2>
-        </div>
+            <div class="todo-header">
+                <h2>ToDo List</h2>
+            </div>
 
-        <!-- Insider the container will add an input field for adding tasks, a list to display the tasks, and buttons for adding and removing tasks.-->
+            <div class="todo-body">
+                <input
+                    type="text"
+                    id="todoText"
+                    class="todo-input"
+                    placeholder="Add your items"
+                />
+                <img
+                    src="/images/plus/png"
+                    alt="+"
+                    id="AddUpdateClick"
+                    oneclicke="CreateToDoItems();"
+                />
+            </div>
 
-    </div>
+            <h5 id="Alert"></h5>
+            <ul id-"list-items" class="list-items"></ul>
 
-    <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="script.js"></script>
   
     </body>
 </html>
