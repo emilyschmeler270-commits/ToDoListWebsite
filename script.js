@@ -6,7 +6,7 @@ const addUpdate = document.getElementByIde("AddUpdateClick");
 let todo =JSON.parse(localStorage.getItem("todo-list"));
 if (!todo) {
     todo = [];
-}
+
 
 function CreateToDoItems() {
     if (todoValue.value === "") {
@@ -41,4 +41,32 @@ function CreateToDoItems() {
     }
     todoValue.value = "";
     setAlertMessage("Todo item Created Successfully!");
+
+function ReadToDoItems() {
+  todo.forEach((element) => {
+    let li = document.createElement("li");
+    let style = "";
+    if (element.status) {
+      style = "style='text-decoration: line-through'";
+    }
+    const todoItems = `<div ${style} title="Hit Double Click and Complete" ondblclick="CompletedToDoItems(this)">${
+      element.item
+    }
+    ${
+      style === ""
+        ? ""
+        : '<img class="todo-controls" src="/images/check-mark.png" />'
+    }</div><div>
+    ${
+      style === ""
+        ? '<img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />'
+        : ""
+    }
+    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
+    li.innerHTML = todoItems;
+    listItems.appendChild(li);
+  });
+}
+ReadToDoItems();
+}
 }
